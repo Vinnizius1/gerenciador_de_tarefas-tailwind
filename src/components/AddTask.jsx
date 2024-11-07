@@ -1,10 +1,5 @@
 function AddTask() {
-  return (
-    <form>
-      <input type="text" />
-      <button>Add</button>
-    </form>
-  );
+  return <h1>AddTask</h1>;
 }
 
 export default AddTask;
