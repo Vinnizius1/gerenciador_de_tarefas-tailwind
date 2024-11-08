@@ -24,6 +24,23 @@ function App() {
     },
   ]);
 
+  //
+  function onTaskClick(taskId) {
+    const newTasks = tasks.map(task => {
+      // Preciso atualizar esta tarefa
+      if (task.id === taskId) {
+        return {
+          ...task,
+          isCompleted: !task.isCompleted,
+        };
+      }
+      // Não preciso atualizar
+      return task;
+    });
+
+    setTasks(newTasks);
+  }
+
   return (
     <div className="w-screen h-screen bg-slate-500 flex justify-center p-6">
       <div className="w-[500px]">
@@ -31,7 +48,7 @@ function App() {
           Gerenciador de Tarefas
         </h1>
         <AddTask />
-        <Tasks setTasks={setTasks} tasks={tasks} />
+        <Tasks onTaskClick={onTaskClick} tasks={tasks} />
       </div>
     </div>
   );
